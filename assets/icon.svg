@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" width="128" height="128" role="img" aria-label="Mnemosyne Companion">
+  <defs>
+    <radialGradient id="g" cx="32%" cy="26%" r="82%">
+      <stop offset="0" stop-color="#f0e0b6"/>
+      <stop offset=".55" stop-color="#b8892b"/>
+      <stop offset="1" stop-color="#8a6416"/>
+    </radialGradient>
+  </defs>
+  <rect x="4" y="4" width="120" height="120" rx="30" fill="url(#g)"/>
+  <rect x="4" y="4" width="120" height="120" rx="30" fill="none" stroke="#ffffff" stroke-opacity=".38" stroke-width="2"/>
+  <text x="64" y="89" text-anchor="middle" font-family="Georgia,'Times New Roman',serif" font-size="72" font-weight="700" fill="#3a1219">M</text>
+</svg>

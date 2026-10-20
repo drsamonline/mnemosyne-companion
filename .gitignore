@@ -1,0 +1,23 @@
+# OS / editor cruft
+.DS_Store
+Thumbs.db
+desktop.ini
+*.swp
+*~
+
+# Editors
+.vscode/
+.idea/
+*.sublime-*
+
+# Logs
+*.log
+npm-debug.log*
+
+# Build / tooling (this project has no build step; kept for safety)
+node_modules/
+dist/*.map
+
+# Local previews
+_preview/
+*.tmp
