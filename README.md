@@ -75,7 +75,7 @@ The book teaches the method; this app is the practice bench. It carries the stud
 
 ## Getting started
 
-**Use it online.** Open **[drsamonline.github.io/mnemosyne-companion](https://drsamonline.github.io/mnemosyne-companion/play/)** — nothing to install.
+**Use it online.** Open **[drsamonline.github.io/mnemosyne-companion/play/](https://drsamonline.github.io/mnemosyne-companion/play/)** — nothing to install.
 
 **Use it offline.** Download [`dist/Mnemosyne_Companion.html`](dist/Mnemosyne_Companion.html) and open it in any browser. It is one self-contained file with no internet dependency, so it works on a plane, in a clinic with no signal, or from a USB stick. On a phone, choose *Open in browser* rather than a file-preview app.
 
