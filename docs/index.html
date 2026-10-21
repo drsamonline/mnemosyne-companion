@@ -1,0 +1,593 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#2b1055">
+<meta name="robots" content="index,follow,max-image-preview:large">
+<title>Mnemosyne Companion — Spaced-repetition study companion for 100 homoeopathic remedies</title>
+<meta name="description" content="Mnemosyne Companion turns the 100 polycrest homoeopathic remedies into poetic pearls, keynotes and spaced-repetition drills — a single offline HTML app with no dependencies, no tracking and no network calls. Companion to Mnemosyne Materia Medica by Dr. Sohil Momin.">
+<meta name="keywords" content="Mnemosyne Companion, Mnemosyne Materia Medica, homoeopathy, materia medica, spaced repetition, polycrest remedies, keynotes, poetic pearls, homoeopathic study, Dr. Sohil Momin, offline study app">
+<meta name="author" content="Dr. Sohil Momin">
+<link rel="canonical" href="https://drsamonline.github.io/mnemosyne-companion/">
+
+<!-- Open Graph -->
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Mnemosyne Companion">
+<meta property="og:title" content="Mnemosyne Companion — the 100 polycrest remedies, as a spaced-repetition drill">
+<meta property="og:description" content="Poetic pearls, keynotes and active-recall drills for 100 homoeopathic remedies. One self-contained offline HTML app. No dependencies, no tracking, no network calls.">
+<meta property="og:url" content="https://drsamonline.github.io/mnemosyne-companion/">
+<meta property="og:image" content="https://socialify.git.ci/drsamonline/mnemosyne-companion/image?name=1&amp;owner=1&amp;description=1&amp;language=1&amp;theme=Dark&amp;font=Inter">
+<meta property="og:image:alt" content="Mnemosyne Companion repository card">
+
+<!-- Twitter -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Mnemosyne Companion — the 100 polycrest remedies, as a spaced-repetition drill">
+<meta name="twitter:description" content="Poetic pearls, keynotes and active-recall drills for 100 homoeopathic remedies. One self-contained offline HTML app.">
+<meta name="twitter:image" content="https://socialify.git.ci/drsamonline/mnemosyne-companion/image?name=1&amp;owner=1&amp;description=1&amp;language=1&amp;theme=Dark&amp;font=Inter">
+
+<link rel="icon" type="image/svg+xml" href="assets/icon.svg">
+
+<script>document.documentElement.className+=' js';</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "name": "Mnemosyne Companion",
+  "applicationCategory": "EducationalApplication",
+  "operatingSystem": "Any (browser)",
+  "url": "https://drsamonline.github.io/mnemosyne-companion/",
+  "downloadUrl": "https://drsamonline.github.io/mnemosyne-companion/play/",
+  "softwareVersion": "1.0.0",
+  "description": "A study companion for Mnemosyne Materia Medica: the 100 polycrest homoeopathic remedies as poetic pearls, keynotes and spaced-repetition drills, in a single offline app.",
+  "isAccessibleForFree": true,
+  "author": { "@type": "Person", "name": "Dr. Sohil Momin", "jobTitle": "Homoeopathic physician" },
+  "license": "https://github.com/drsamonline/mnemosyne-companion/blob/main/LICENSE",
+  "offers": { "@type": "Offer", "price": "0", "priceCurrency": "INR" },
+  "featureList": [
+    "Quick reference across 100 polycrest remedies",
+    "Spaced repetition in three drill modes",
+    "Progress tracking with a Leitner box schedule",
+    "Six hand-drawn inline SVG study diagrams",
+    "Works fully offline with no dependencies"
+  ]
+}
+</script>
+
+<style>
+:root{
+  --plum:#2b1055;
+  --plum-deep:#1d0938;
+  --plum-night:#140628;
+  --plum-soft:#3a1a6b;
+  --gold:#d4af37;
+  --gold-soft:#e8cd78;
+  --gold-dim:rgba(212,175,55,.28);
+  --parchment:#f3ecdc;
+  --parchment-dim:#cbbfe0;
+  --ink-soft:#b9aee0;
+  --line:rgba(212,175,55,.20);
+  --line-2:rgba(212,175,55,.12);
+  --serif:'Iowan Old Style','Palatino Linotype',Palatino,'Book Antiqua',Georgia,'Times New Roman',serif;
+  --sans:system-ui,-apple-system,'Segoe UI',Roboto,'Helvetica Neue',Arial,sans-serif;
+  --maxw:1120px;
+  --r:14px;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;padding:0;background:var(--plum-night);color:var(--parchment);
+  font-family:var(--sans);font-size:17px;line-height:1.65;
+  -webkit-font-smoothing:antialiased;overflow-x:hidden;
+}
+h1,h2,h3,h4,.serif{font-family:var(--serif);font-weight:600;letter-spacing:.2px;line-height:1.15}
+a{color:var(--gold-soft);text-decoration:none}
+a:hover{text-decoration:underline}
+img{max-width:100%;display:block}
+.wrap{max-width:var(--maxw);margin:0 auto;padding:0 22px}
+.skip{position:absolute;left:-999px;top:0;background:var(--gold);color:#1a0b33;padding:10px 16px;z-index:200;border-radius:0 0 8px 0}
+.skip:focus{left:0}
+
+/* ---------- starfield ---------- */
+.sky{position:fixed;inset:0;z-index:-2;background:
+  radial-gradient(1200px 700px at 78% -8%, rgba(212,175,55,.10), transparent 62%),
+  radial-gradient(1000px 620px at 8% 12%, rgba(122,86,214,.16), transparent 60%),
+  linear-gradient(180deg,#2b1055 0%, #1d0938 42%, #140628 100%);
+}
+.sky::after{
+  content:"";position:absolute;inset:0;opacity:.55;
+  background-image:
+    radial-gradient(1.4px 1.4px at 20% 30%, rgba(243,236,220,.9), transparent),
+    radial-gradient(1.2px 1.2px at 65% 18%, rgba(232,205,120,.9), transparent),
+    radial-gradient(1.1px 1.1px at 82% 52%, rgba(243,236,220,.75), transparent),
+    radial-gradient(1.5px 1.5px at 38% 74%, rgba(232,205,120,.7), transparent),
+    radial-gradient(1px 1px at 12% 62%, rgba(243,236,220,.6), transparent),
+    radial-gradient(1.2px 1.2px at 55% 88%, rgba(243,236,220,.6), transparent),
+    radial-gradient(1px 1px at 90% 84%, rgba(232,205,120,.6), transparent),
+    radial-gradient(1.3px 1.3px at 47% 8%, rgba(243,236,220,.7), transparent);
+  background-size:520px 520px,600px 600px,460px 460px,700px 700px,380px 380px,640px 640px,560px 560px,480px 480px;
+}
+
+/* ---------- nav ---------- */
+header.nav{
+  position:sticky;top:0;z-index:100;
+  backdrop-filter:blur(9px);
+  background:linear-gradient(180deg,rgba(29,9,56,.92),rgba(29,9,56,.74));
+  border-bottom:1px solid var(--line);
+}
+.nav .bar{display:flex;align-items:center;gap:14px;max-width:var(--maxw);margin:0 auto;padding:12px 22px}
+.mark{
+  width:40px;height:40px;flex:none;border-radius:11px;
+  background:radial-gradient(circle at 32% 26%,#f0dc9a,var(--gold) 58%,#8a6c12);
+  display:grid;place-items:center;color:#2b1055;font-family:var(--serif);
+  font-weight:700;font-size:21px;box-shadow:inset 0 0 0 1px rgba(255,255,255,.35);
+}
+.brand b{font-family:var(--serif);font-size:18px;display:block;line-height:1.1}
+.brand span{display:block;font-size:10.5px;letter-spacing:2px;text-transform:uppercase;color:var(--gold)}
+.nav .links{display:flex;gap:22px;margin-left:auto;align-items:center}
+.nav .links a{color:var(--parchment-dim);font-size:14.5px;letter-spacing:.3px}
+.nav .links a:hover{color:var(--gold-soft);text-decoration:none}
+.nav .cta{
+  border:1px solid var(--gold);border-radius:999px;padding:8px 16px;color:var(--gold-soft)!important;
+  background:rgba(212,175,55,.08);
+}
+.nav .cta:hover{background:rgba(212,175,55,.18)}
+.menubtn{display:none;margin-left:auto;background:none;border:1px solid var(--line);color:var(--gold);
+  border-radius:10px;width:42px;height:42px;cursor:pointer}
+@media(max-width:820px){
+  .nav .links{display:none;position:absolute;top:66px;left:0;right:0;flex-direction:column;gap:0;
+    background:rgba(20,6,40,.98);border-bottom:1px solid var(--line);padding:8px 22px 16px}
+  .nav .links.open{display:flex}
+  .nav .links a{padding:12px 0;width:100%;border-bottom:1px solid var(--line-2)}
+  .menubtn{display:grid;place-items:center}
+  .nav .links .cta{text-align:center;margin-top:12px;border-bottom:none}
+}
+
+/* ---------- buttons ---------- */
+.btn{
+  display:inline-flex;align-items:center;gap:10px;border-radius:999px;
+  padding:14px 26px;font-size:15.5px;font-weight:600;font-family:var(--sans);
+  cursor:pointer;transition:transform .18s ease, box-shadow .18s ease, background .18s ease;
+}
+.btn-gold{background:linear-gradient(180deg,#e8cd78,var(--gold));color:#2b1055;border:1px solid #f0dc9a;
+  box-shadow:0 10px 28px rgba(212,175,55,.22)}
+.btn-gold:hover{transform:translateY(-2px);box-shadow:0 14px 34px rgba(212,175,55,.32);text-decoration:none}
+.btn-ghost{background:transparent;color:var(--parchment);border:1px solid var(--line)}
+.btn-ghost:hover{border-color:var(--gold);color:var(--gold-soft);transform:translateY(-2px);text-decoration:none}
+.btn svg{width:18px;height:18px;flex:none}
+
+/* ---------- hero ---------- */
+.hero{position:relative;padding:74px 0 54px;overflow:hidden}
+.hero .grid{display:grid;grid-template-columns:1.15fr .85fr;gap:44px;align-items:center}
+@media(max-width:900px){.hero .grid{grid-template-columns:1fr;gap:30px}}
+.kicker{font-size:12.5px;letter-spacing:3px;text-transform:uppercase;color:var(--gold);margin:0 0 16px}
+.hero h1{font-size:clamp(2.4rem,5.6vw,4rem);margin:0 0 6px;color:#fbf7ee}
+.hero h1 em{font-style:italic;color:var(--gold-soft)}
+.hero .pitch{font-size:clamp(1.05rem,2vw,1.28rem);color:var(--parchment-dim);max-width:56ch;margin:16px 0 8px}
+.hero .sub{font-size:15px;color:var(--ink-soft);max-width:56ch}
+.hero .actions{display:flex;flex-wrap:wrap;gap:14px;margin-top:28px}
+.hero .meta{margin-top:22px;font-size:13.5px;color:var(--ink-soft);display:flex;flex-wrap:wrap;gap:8px 18px}
+.hero .meta span{display:inline-flex;align-items:center;gap:7px}
+.dot{width:7px;height:7px;border-radius:50%;background:var(--gold);box-shadow:0 0 10px var(--gold)}
+.constellation{width:100%;height:auto;filter:drop-shadow(0 6px 30px rgba(212,175,55,.18))}
+.star{transform-box:fill-box;transform-origin:center;animation:twinkle 4.5s ease-in-out infinite}
+.star:nth-child(2n){animation-delay:1.2s}
+.star:nth-child(3n){animation-delay:2.4s}
+@keyframes twinkle{0%,100%{opacity:.55}50%{opacity:1}}
+.trace{stroke-dasharray:5 7;animation:dash 26s linear infinite}
+@keyframes dash{to{stroke-dashoffset:-240}}
+
+/* ---------- section shell ---------- */
+section{padding:64px 0;position:relative}
+.sec-head{max-width:64ch;margin-bottom:38px}
+.sec-head .eyebrow{font-size:12px;letter-spacing:3px;text-transform:uppercase;color:var(--gold);margin:0 0 12px}
+.sec-head h2{font-size:clamp(1.7rem,3.6vw,2.5rem);margin:0 0 12px;color:#fbf7ee}
+.sec-head p{color:var(--parchment-dim);margin:0;font-size:16.5px}
+.rule{height:1px;background:linear-gradient(90deg,var(--gold-dim),transparent);border:0;margin:0}
+
+/* ---------- badges ---------- */
+.badges{display:flex;flex-wrap:wrap;gap:10px;align-items:center;padding:22px 0}
+.badges img{height:20px}
+.chip{
+  display:inline-flex;align-items:center;gap:8px;font-size:12.5px;font-weight:600;
+  letter-spacing:.4px;border-radius:999px;padding:6px 14px;border:1px solid var(--gold-dim);
+  background:rgba(212,175,55,.09);color:var(--gold-soft);
+}
+.chip .tick{width:13px;height:13px;flex:none}
+.chip.plum{border-color:rgba(185,174,224,.28);background:rgba(122,86,214,.12);color:var(--parchment-dim)}
+
+/* ---------- cards ---------- */
+.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+@media(max-width:960px){.cards{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:640px){.cards{grid-template-columns:1fr}}
+.card{
+  background:linear-gradient(180deg,rgba(58,26,107,.42),rgba(29,9,56,.5));
+  border:1px solid var(--line);border-radius:var(--r);padding:26px 24px;
+  transition:transform .2s ease,border-color .2s ease,box-shadow .2s ease;
+}
+.card:hover{transform:translateY(-4px);border-color:var(--gold-dim);box-shadow:0 18px 40px rgba(0,0,0,.32)}
+.card .ic{width:42px;height:42px;margin-bottom:16px;color:var(--gold)}
+.card h3{margin:0 0 8px;font-size:1.24rem;color:#fbf7ee}
+.card p{margin:0;color:var(--parchment-dim);font-size:15.3px}
+.card ul{margin:10px 0 0;padding-left:18px;color:var(--parchment-dim);font-size:15px}
+.card ul li{margin:3px 0}
+
+/* ---------- steps / how it works ---------- */
+.steps{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
+@media(max-width:900px){.steps{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:560px){.steps{grid-template-columns:1fr}}
+.step{position:relative;padding:24px 20px;border:1px solid var(--line);border-radius:var(--r);
+  background:rgba(29,9,56,.45)}
+.step .num{font-family:var(--serif);font-size:2.1rem;color:var(--gold);line-height:1;margin-bottom:10px}
+.step h4{margin:0 0 6px;font-size:1.08rem;color:#fbf7ee}
+.step p{margin:0;font-size:14.5px;color:var(--parchment-dim)}
+.step .day{display:inline-block;margin-top:10px;font-size:11.5px;letter-spacing:1.4px;text-transform:uppercase;color:var(--gold)}
+
+.protocol{margin-top:26px;display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
+@media(max-width:760px){.protocol{grid-template-columns:repeat(2,1fr)}}
+.phase{border:1px solid var(--line-2);border-radius:12px;padding:16px;background:rgba(58,26,107,.28)}
+.phase b{display:block;font-family:var(--serif);color:var(--gold-soft);font-size:1.05rem}
+.phase span{font-size:13.5px;color:var(--ink-soft)}
+
+/* ---------- screenshots ---------- */
+.shots{display:grid;grid-template-columns:repeat(2,1fr);gap:22px}
+@media(max-width:760px){.shots{grid-template-columns:1fr}}
+.shot{border:1px solid var(--line);border-radius:var(--r);overflow:hidden;background:#1a0b33;
+  transition:transform .2s ease,border-color .2s ease}
+.shot:hover{transform:translateY(-4px);border-color:var(--gold-dim)}
+.shot img{width:100%;border-bottom:1px solid var(--line-2)}
+.shot figcaption{padding:14px 18px;font-size:14px;color:var(--parchment-dim)}
+.shot figcaption b{color:var(--gold-soft);font-family:var(--serif);display:block;font-size:15.5px;margin-bottom:2px}
+
+/* ---------- panel / faq ---------- */
+.panel{border:1px solid var(--line);border-radius:var(--r);background:rgba(29,9,56,.5);padding:30px 28px}
+.split{display:grid;grid-template-columns:1fr 1fr;gap:26px}
+@media(max-width:860px){.split{grid-template-columns:1fr}}
+.codeblock{background:#100520;border:1px solid var(--line-2);border-radius:12px;padding:16px 18px;
+  font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-size:13.5px;color:var(--gold-soft);
+  overflow-x:auto;white-space:pre}
+.faq details{border-bottom:1px solid var(--line-2);padding:16px 4px}
+.faq details[open]{padding-bottom:20px}
+.faq summary{cursor:pointer;font-family:var(--serif);font-size:1.14rem;color:#fbf7ee;list-style:none;
+  display:flex;justify-content:space-between;align-items:center;gap:14px}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::after{content:"+";color:var(--gold);font-size:1.5rem;font-family:var(--sans);line-height:1}
+.faq details[open] summary::after{content:"\2013"}
+.faq p{margin:12px 0 0;color:var(--parchment-dim);font-size:15.5px}
+.note{margin-top:22px;padding:16px 18px;border-left:3px solid var(--gold);background:rgba(212,175,55,.06);
+  border-radius:0 10px 10px 0;font-size:14.5px;color:var(--parchment-dim)}
+.note b{color:var(--gold-soft)}
+
+/* ---------- footer ---------- */
+footer{border-top:1px solid var(--line);margin-top:30px;padding:52px 0 40px;position:relative;overflow:hidden}
+.footgrid{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:30px}
+@media(max-width:760px){.footgrid{grid-template-columns:1fr;gap:24px}}
+footer h4{font-size:13px;letter-spacing:2px;text-transform:uppercase;color:var(--gold);margin:0 0 14px;font-family:var(--sans)}
+footer a{display:block;color:var(--parchment-dim);font-size:15px;padding:5px 0}
+footer a:hover{color:var(--gold-soft)}
+footer p{color:var(--ink-soft);font-size:14px}
+.credit{margin-top:38px;padding-top:22px;border-top:1px solid var(--line-2);display:flex;flex-wrap:wrap;
+  gap:10px 20px;justify-content:space-between;align-items:center;color:var(--ink-soft);font-size:13.5px}
+.credit b{color:var(--gold-soft)}
+
+/* ---------- reveal (progressive: visible without JS) ---------- */
+.reveal{opacity:1;transform:none;transition:opacity .6s ease, transform .6s ease}
+html.js .reveal{opacity:0;transform:translateY(18px)}
+html.js .reveal.in{opacity:1;transform:none}
+@media (prefers-reduced-motion: reduce){
+  html{scroll-behavior:auto}
+  html.js .reveal{opacity:1;transform:none;transition:none}
+  .star,.trace{animation:none}
+  .card:hover,.shot:hover,.btn:hover{transform:none}
+}
+</style>
+</head>
+<body>
+<div class="sky" aria-hidden="true"></div>
+<a class="skip" href="#main">Skip to content</a>
+
+<header class="nav">
+  <div class="bar">
+    <span class="mark" aria-hidden="true">M</span>
+    <span class="brand">
+      <b>Mnemosyne Companion</b>
+      <span>Materia Medica · Memory</span>
+    </span>
+    <button class="menubtn" aria-label="Toggle navigation" aria-expanded="false" id="menubtn">
+      <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+    </button>
+    <nav class="links" id="navlinks" aria-label="Primary">
+      <a href="#features">Features</a>
+      <a href="#how">How it works</a>
+      <a href="#screens">Screenshots</a>
+      <a href="#start">Get started</a>
+      <a href="#faq">FAQ</a>
+      <a class="cta" href="play/">Open the app</a>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+
+  <!-- ================= HERO ================= -->
+  <section class="hero">
+    <div class="wrap grid">
+      <div>
+        <p class="kicker">Companion to <em>Mnemosyne Materia Medica</em></p>
+        <h1>Mnemosyne <em>Companion</em></h1>
+        <p class="pitch">A study companion for the 100 polycrest homoeopathic remedies — poetic pearls, keynotes and spaced-repetition drills, in a single offline app.</p>
+        <p class="sub">The book teaches the method; this is the practice bench. Mnemosyne, the Greek goddess of memory, lends her name to a tool built for recall — not re-reading.</p>
+        <div class="actions">
+          <a class="btn btn-gold" href="play/">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 3l14 9-14 9V3z"/></svg>
+            Open the live app
+          </a>
+          <a class="btn btn-ghost" href="https://github.com/drsamonline/mnemosyne-companion">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 .5A11.5 11.5 0 0 0 .5 12a11.5 11.5 0 0 0 7.86 10.92c.58.1.79-.25.79-.56v-2c-3.2.7-3.88-1.54-3.88-1.54-.53-1.34-1.3-1.7-1.3-1.7-1.06-.72.08-.71.08-.71 1.17.08 1.79 1.2 1.79 1.2 1.04 1.79 2.73 1.27 3.4.97.1-.76.41-1.27.74-1.56-2.56-.29-5.25-1.28-5.25-5.7 0-1.26.45-2.29 1.19-3.1-.12-.29-.52-1.46.11-3.05 0 0 .97-.31 3.18 1.18a11 11 0 0 1 5.8 0c2.2-1.49 3.17-1.18 3.17-1.18.63 1.59.23 2.76.11 3.05.74.81 1.19 1.84 1.19 3.1 0 4.43-2.7 5.4-5.27 5.69.42.36.8 1.08.8 2.18v3.23c0 .31.21.67.8.56A11.5 11.5 0 0 0 23.5 12 11.5 11.5 0 0 0 12 .5z"/></svg>
+            View on GitHub
+          </a>
+        </div>
+        <div class="meta">
+          <span><i class="dot"></i> 100 remedies</span>
+          <span><i class="dot"></i> Works offline</span>
+          <span><i class="dot"></i> No dependencies</span>
+          <span><i class="dot"></i> Version 1.0.0</span>
+        </div>
+      </div>
+
+      <!-- constellation motif -->
+      <div aria-hidden="true">
+        <svg class="constellation" viewBox="0 0 420 380" role="img" aria-label="Constellation motif">
+          <defs>
+            <radialGradient id="glow" cx="50%" cy="50%" r="50%">
+              <stop offset="0%" stop-color="#d4af37" stop-opacity=".9"/>
+              <stop offset="100%" stop-color="#d4af37" stop-opacity="0"/>
+            </radialGradient>
+          </defs>
+          <circle cx="210" cy="190" r="150" fill="none" stroke="rgba(212,175,55,.18)"/>
+          <circle cx="210" cy="190" r="112" fill="none" stroke="rgba(212,175,55,.12)"/>
+          <circle cx="210" cy="190" r="74" fill="none" stroke="rgba(212,175,55,.10)"/>
+          <g stroke="rgba(212,175,55,.5)" stroke-width="1.1" fill="none" class="trace">
+            <path d="M70 96 L162 62 L246 108 L322 74"/>
+            <path d="M322 74 L352 168 L286 236 L318 316"/>
+            <path d="M318 316 L214 344 L120 300 L70 96"/>
+            <path d="M162 62 L150 168 L246 108"/>
+            <path d="M150 168 L214 344"/>
+            <path d="M150 168 L120 300"/>
+          </g>
+          <g fill="#f3ecdc">
+            <circle class="star" cx="70" cy="96" r="4"/><circle class="star" cx="162" cy="62" r="3"/>
+            <circle class="star" cx="246" cy="108" r="3.4"/><circle class="star" cx="322" cy="74" r="3"/>
+            <circle class="star" cx="352" cy="168" r="3.4"/><circle class="star" cx="286" cy="236" r="3"/>
+            <circle class="star" cx="318" cy="316" r="3.4"/><circle class="star" cx="214" cy="344" r="4"/>
+            <circle class="star" cx="120" cy="300" r="3"/><circle class="star" cx="150" cy="168" r="3.4"/>
+          </g>
+          <circle cx="210" cy="190" r="34" fill="url(#glow)"/>
+          <circle cx="210" cy="190" r="20" fill="#f0dc9a" opacity=".95"/>
+          <text x="210" y="197" text-anchor="middle" font-family="Iowan Old Style,Palatino,Georgia,serif" font-size="21" font-weight="700" fill="#2b1055">M</text>
+        </svg>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= BADGES ================= -->
+  <div class="wrap">
+    <hr class="rule">
+    <div class="badges" aria-label="Project badges">
+      <img src="https://img.shields.io/github/v/release/drsamonline/mnemosyne-companion?style=flat-square&amp;label=version&amp;color=d4af37" alt="Version" onerror="this.style.display='none'">
+      <img src="https://img.shields.io/github/last-commit/drsamonline/mnemosyne-companion?style=flat-square&amp;color=2b1055" alt="Last commit" onerror="this.style.display='none'">
+      <img src="https://img.shields.io/github/stars/drsamonline/mnemosyne-companion?style=flat-square&amp;color=d4af37" alt="Stars" onerror="this.style.display='none'">
+      <img src="https://img.shields.io/github/license/drsamonline/mnemosyne-companion?style=flat-square&amp;color=6e1f2a" alt="License" onerror="this.style.display='none'">
+      <img src="https://img.shields.io/github/repo-size/drsamonline/mnemosyne-companion?style=flat-square&amp;color=2b1055" alt="Repo size" onerror="this.style.display='none'">
+      <span class="chip"><svg class="tick" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>100 remedies</span>
+      <span class="chip"><svg class="tick" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>8 keynotes each</span>
+      <span class="chip"><svg class="tick" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>3 drill modes</span>
+      <span class="chip plum"><svg class="tick" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>6 inline SVG diagrams</span>
+      <span class="chip plum"><svg class="tick" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>Offline · no tracking</span>
+    </div>
+    <hr class="rule">
+  </div>
+
+  <!-- ================= FEATURES ================= -->
+  <section id="features">
+    <div class="wrap">
+      <div class="sec-head reveal">
+        <p class="eyebrow">What it contains</p>
+        <h2>Everything you need to make the picture stick</h2>
+        <p>Each remedy carries its study layer — the pearl, the keynotes, the modalities and the differentials — and the app turns them into active recall instead of passive reading.</p>
+      </div>
+      <div class="cards">
+        <article class="card reveal">
+          <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/></svg>
+          <h3>Quick reference</h3>
+          <p>Search all 100 pictures by symptom, keynote or pearl — then filter by kingdom and by miasm. A live count keeps you oriented across the whole set.</p>
+        </article>
+        <article class="card reveal">
+          <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="14" height="16" rx="2"/><path d="M17 8h3a1 1 0 0 1 1 1v10a1 1 0 0 1-1 1h-3M7 9h6M7 13h6M7 17h4"/></svg>
+          <h3>Spaced repetition</h3>
+          <p>Flashcards in three modes, graded Again / Hard / Good / Easy on a Leitner schedule of 0, 1, 3, 7, 21 and 45 days. Cards reach mastery at the fifth box.</p>
+        </article>
+        <article class="card reveal">
+          <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 12l4-4"/><path d="M12 3v3"/></svg>
+          <h3>Progress you can see</h3>
+          <p>Started, due-now and mastered counts, drawn as a progress ring. Stored only in your own browser — it never leaves your device.</p>
+        </article>
+        <article class="card reveal">
+          <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 20h18"/><path d="M6 20V10M12 20V4M18 20v-7"/></svg>
+          <h3>Six study diagrams</h3>
+          <p>The four-phase cycle, the forgetting curve, the principles of retention, the C and LM potency scales, the miasmatic tree and the memory palace — all hand-written inline SVG.</p>
+        </article>
+        <article class="card reveal">
+          <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="13" r="8"/><path d="M12 9v4l2 2M9 2h6"/></svg>
+          <h3>Protocol timer</h3>
+          <p>A session timer that walks the encode → recall → integrate → master cycle, announcing each phase as it completes so you keep to the method.</p>
+        </article>
+        <article class="card reveal">
+          <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 5a2 2 0 0 1 2-2h13v18H6a2 2 0 0 1-2-2z"/><path d="M8 3v18"/></svg>
+          <h3>Guide, themes &amp; deep links</h3>
+          <p>The method, a field guide to a remedy card, a posology note and the safety frame — plus light/dark themes and <code>#remedies</code>, <code>#study</code>, <code>#diagrams</code>, <code>#guide</code> deep links.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= HOW IT WORKS ================= -->
+  <section id="how">
+    <div class="wrap">
+      <div class="sec-head reveal">
+        <p class="eyebrow">How it works</p>
+        <h2>A method, not a pile of notes</h2>
+        <p>The app follows the four-phase protocol in the book. You encode a remedy, recall it before you reveal, integrate it with its differentials, and let the schedule carry it to mastery.</p>
+      </div>
+      <div class="steps">
+        <div class="step reveal"><div class="num">I</div><h4>Encode</h4><p>Read the pearl and the keynotes. Say them aloud. The first pass builds the shape of the picture.</p><span class="day">Day 1</span></div>
+        <div class="step reveal"><div class="num">II</div><h4>Recall</h4><p>Drill in any of three modes. Recall <em>before</em> you reveal — the struggle is the point.</p><span class="day">Day 2</span></div>
+        <div class="step reveal"><div class="num">III</div><h4>Integrate</h4><p>Read the differentials and the modalities. Separate the remedy from its nearest competitors.</p><span class="day">Day 7</span></div>
+        <div class="step reveal"><div class="num">IV</div><h4>Master</h4><p>The schedule spaces the card out on its own. Keep returning; spacing beats massing.</p><span class="day">Day 21–60</span></div>
+      </div>
+      <div class="protocol">
+        <div class="phase"><b>Encode</b><span>90 seconds</span></div>
+        <div class="phase"><b>Consolidate</b><span>5 minutes</span></div>
+        <div class="phase"><b>Integrate</b><span>7 minutes</span></div>
+        <div class="phase"><b>Master</b><span>1 minute</span></div>
+      </div>
+      <div class="note reveal">
+        <b>Grade honestly.</b> Marking a card “Good” when it was a struggle is the fastest way to forget it. “Again” returns a card to the first box; “Easy” advances it by two.
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= SCREENSHOTS ================= -->
+  <section id="screens">
+    <div class="wrap">
+      <div class="sec-head reveal">
+        <p class="eyebrow">A look inside</p>
+        <h2>The app, as you will meet it</h2>
+        <p>A calm, legible interface that stays out of the way of the material. Desktop and phone, light and dark.</p>
+      </div>
+      <div class="shots">
+        <figure class="shot reveal"><img src="assets/screenshot-home.png" alt="Home view showing the remedy of the day and your progress ring" loading="lazy"><figcaption><b>Home</b>Remedy of the day, progress ring, and three quick routes into the study bench.</figcaption></figure>
+        <figure class="shot reveal"><img src="assets/screenshot-remedies.png" alt="Quick reference list of remedies with search and kingdom filters" loading="lazy"><figcaption><b>Quick reference</b>Search 100 pictures by symptom, keynote or pearl; filter by kingdom and miasm.</figcaption></figure>
+        <figure class="shot reveal"><img src="assets/screenshot-study.png" alt="Study tab with three drill modes and start drill button" loading="lazy"><figcaption><b>Study drill</b>Three modes, self-grading, and a session of up to twenty cards.</figcaption></figure>
+        <figure class="shot reveal"><img src="assets/screenshot-diagrams.png" alt="Diagrams view showing the four-phase study cycle and the forgetting curve" loading="lazy"><figcaption><b>Diagrams</b>The study cycle, the forgetting curve, the miasms and the potency scales — all drawn by hand.</figcaption></figure>
+      </div>
+      <div class="shots" style="margin-top:22px;grid-template-columns:repeat(3,1fr)">
+        <figure class="shot reveal"><img src="assets/screenshot-card.png" alt="A remedy card showing the poetic pearl, keynotes and modalities" loading="lazy"><figcaption><b>Remedy card</b>The pearl, trigger, keynotes, modalities and differentials in one panel.</figcaption></figure>
+        <figure class="shot reveal"><img src="assets/screenshot-mobile.png" alt="The app on a phone with bottom navigation" loading="lazy"><figcaption><b>On a phone</b>Bottom navigation and single-column layouts, designed for the bedside.</figcaption></figure>
+        <figure class="shot reveal"><img src="assets/icon.svg" alt="The Mnemosyne Companion app icon, a gold tile with a serif M" style="padding:40px;background:radial-gradient(circle at 50% 40%,rgba(212,175,55,.14),transparent 70%)"><figcaption><b>The mark</b>A gold tile carrying a serif M — inline SVG, no image file needed.</figcaption></figure>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= GET STARTED ================= -->
+  <section id="start">
+    <div class="wrap">
+      <div class="sec-head reveal">
+        <p class="eyebrow">Get started</p>
+        <h2>Two ways to open it — both take seconds</h2>
+        <p>Nothing to install, nothing to sign up for. Open it online, or take the single file with you.</p>
+      </div>
+      <div class="split">
+        <div class="panel reveal">
+          <h3 class="serif" style="margin-top:0;color:#fbf7ee">Use it online</h3>
+          <p style="color:var(--parchment-dim)">Open the live app in any browser. It is served straight from this repository's <code>/play/</code> path.</p>
+          <p style="margin:18px 0 6px"><a class="btn btn-gold" href="play/">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 3l14 9-14 9V3z"/></svg>
+            Open the live app</a></p>
+          <p style="color:var(--ink-soft);font-size:13.5px;margin:10px 0 0">URL: drsamonline.github.io/mnemosyne-companion/play/</p>
+        </div>
+        <div class="panel reveal">
+          <h3 class="serif" style="margin-top:0;color:#fbf7ee">Use it offline</h3>
+          <p style="color:var(--parchment-dim)">Download the standalone file and open it in any browser. It is one self-contained HTML file with no internet dependency — it works on a plane, in a clinic with no signal, or from a USB stick.</p>
+          <div class="codeblock">dist/Mnemosyne_Companion.html</div>
+          <p style="color:var(--ink-soft);font-size:13.5px;margin:12px 0 0">On a phone, choose <em>Open in browser</em> rather than a file-preview app.</p>
+        </div>
+      </div>
+      <div class="note reveal" style="margin-top:26px">
+        <b>Your progress stays with you.</b> There is no server, no account, no analytics and no network call of any kind. Study progress is saved in your own browser's local storage — and nowhere else.
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= FAQ ================= -->
+  <section id="faq">
+    <div class="wrap">
+      <div class="sec-head reveal">
+        <p class="eyebrow">Questions</p>
+        <h2>Frequently asked</h2>
+      </div>
+      <div class="faq reveal">
+        <details><summary>Is this the whole book?</summary><p>No. It is the companion app. It carries the study layer — pearls, keynotes, modalities, differentials and miasm groups — and adds spaced-repetition practice. The full clinical descriptions, memory hacks and case histories stay in the book.</p></details>
+        <details><summary>Is it free?</summary><p>The app is published for readers of the book. It is free to view and to use for your own personal study. It is not open source and not public domain — see the <a href="https://github.com/drsamonline/mnemosyne-companion/blob/main/LICENSE">LICENSE</a>.</p></details>
+        <details><summary>Does it work without internet?</summary><p>Completely. There are no network calls of any kind. Download the file and it runs anywhere.</p></details>
+        <details><summary>Does it phone home or track me?</summary><p>No. There is no server, no analytics, no account and no telemetry. Your progress is stored only in your own browser and never leaves your device.</p></details>
+        <details><summary>How does the spaced-repetition schedule work?</summary><p>Cards move through six boxes with intervals of 0, 1, 3, 7, 21 and 45 days. Grading “Again” returns a card to the first box; “Hard” drops it one; “Good” advances it one; “Easy” advances it two. Cards reach “mastered” at the fifth box.</p></details>
+        <details><summary>Why do only some remedies show a miasm?</summary><p>Because the book's Appendix B classifies 51 of the 100 remedies into miasmatic groups. The app shows a tag only where the book does, rather than inventing one.</p></details>
+        <details><summary>Can I study just one remedy?</summary><p>Yes. Open any remedy card and press <em>Drill this remedy</em> to run a single-card session.</p></details>
+        <details><summary>Which browsers are supported?</summary><p>Any current Chrome, Edge, Safari or Firefox, on desktop or mobile. No plugins required.</p></details>
+        <details><summary>Is this medical advice?</summary><p>No. It is a study aid. It does not diagnose, treat or prescribe, and it does not replace formal training, clinical judgement or emergency care. Read the full <a href="https://github.com/drsamonline/mnemosyne-companion/blob/main/docs/DISCLAIMER.md">disclaimer</a>.</p></details>
+      </div>
+      <div class="note reveal">
+        <b>Safety frame.</b> A study aid only. In any acute emergency, call <b>108</b> (India) or your local emergency number. Where a case involves thoughts of suicide or a wish to die, it must never be managed alone — free 24×7 support in India is available from <b>Tele-MANAS on 14416</b> or <b>1-800-891-4416</b>.
+      </div>
+    </div>
+  </section>
+</main>
+
+<!-- ================= FOOTER ================= -->
+<footer>
+  <div class="wrap">
+    <div class="footgrid">
+      <div>
+        <span class="mark" aria-hidden="true" style="margin-bottom:14px">M</span>
+        <p style="margin:0;color:var(--parchment-dim);max-width:44ch"><b class="serif" style="color:#fbf7ee;font-size:1.1rem">Mnemosyne Companion</b><br>A study companion for <em>Mnemosyne Materia Medica</em> — the 100 polycrest remedies as pearls, keynotes and spaced-repetition drills.</p>
+      </div>
+      <div>
+        <h4>Explore</h4>
+        <a href="#features">Features</a>
+        <a href="#how">How it works</a>
+        <a href="#screens">Screenshots</a>
+        <a href="#start">Get started</a>
+        <a href="#faq">FAQ</a>
+      </div>
+      <div>
+        <h4>Repository</h4>
+        <a href="https://github.com/drsamonline/mnemosyne-companion">GitHub repository</a>
+        <a href="https://github.com/drsamonline/mnemosyne-companion/blob/main/README.md">README</a>
+        <a href="https://github.com/drsamonline/mnemosyne-companion/tree/main/docs">Documentation</a>
+        <a href="play/">Live app</a>
+        <a href="https://github.com/drsamonline/mnemosyne-companion/blob/main/dist/Mnemosyne_Companion.html">Standalone download</a>
+        <a href="https://github.com/drsamonline/mnemosyne-companion/issues">Report an issue</a>
+      </div>
+    </div>
+    <div class="credit">
+      <span>© 2026 Dr. Sohil Momin. All rights reserved.</span>
+      <span>Built by <b>Dr. Sohil Momin</b></span>
+    </div>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var btn=document.getElementById('menubtn'),links=document.getElementById('navlinks');
+  if(btn){btn.addEventListener('click',function(){
+    var open=links.classList.toggle('open');
+    btn.setAttribute('aria-expanded',open?'true':'false');
+  });
+  links.addEventListener('click',function(e){ if(e.target.tagName==='A'){links.classList.remove('open');btn.setAttribute('aria-expanded','false');} });
+  }
+
+  var reduce=window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var els=[].slice.call(document.querySelectorAll('.reveal'));
+  if(reduce||!('IntersectionObserver' in window)){
+    els.forEach(function(el){el.classList.add('in');});
+  }else{
+    var io=new IntersectionObserver(function(entries){
+      entries.forEach(function(en){ if(en.isIntersecting){ en.target.classList.add('in'); io.unobserve(en.target);} });
+    },{rootMargin:'0px 0px -8% 0px',threshold:.08});
+    els.forEach(function(el){io.observe(el);});
+  }
+})();
+</script>
+</body>
+</html>

@@ -1,23 +1,26 @@
 <div align="center">
 
-<img src="assets/icon.svg" width="84" alt="Mnemosyne Companion">
+<img src="assets/icon.svg" width="72" alt="Mnemosyne Companion">
 
 # Mnemosyne Companion
 
 **A study companion for _Mnemosyne Materia Medica_** — the 100 polycrest homoeopathic remedies as poetic pearls, keynotes and spaced-repetition drills, in a single offline app.
 
-[![License: All Rights Reserved](https://img.shields.io/badge/License-All%20Rights%20Reserved-6e1f2a?style=flat-square)](LICENSE)
-[![Version](https://img.shields.io/badge/version-1.0.0-b8892b?style=flat-square)](CHANGELOG.md)
+[![Landing page](https://img.shields.io/badge/landing%20page-visit-d4af37?style=flat-square)](https://drsamonline.github.io/mnemosyne-companion/)
+[![Live app](https://img.shields.io/badge/live%20app-open-2b1055?style=flat-square)](https://drsamonline.github.io/mnemosyne-companion/play/)
 [![Status](https://img.shields.io/badge/status-live-2f7d5b?style=flat-square)](https://drsamonline.github.io/mnemosyne-companion/)
-[![Made with](https://img.shields.io/badge/made%20with-HTML%20%C2%B7%20CSS%20%C2%B7%20vanilla%20JS-b8892b?style=flat-square)](#-built-with)
+[![Version](https://img.shields.io/badge/version-1.0.0-b8892b?style=flat-square)](CHANGELOG.md)
+[![Remedies](https://img.shields.io/badge/remedies-100-6e1f2a?style=flat-square)](#-what-it-contains)
+[![Keynotes](https://img.shields.io/badge/keynotes-8%20each-b8892b?style=flat-square)](#-what-it-contains)
+[![Drill modes](https://img.shields.io/badge/drill%20modes-3-6e1f2a?style=flat-square)](#-features)
 [![Dependencies](https://img.shields.io/badge/dependencies-none-2f7d5b?style=flat-square)](#-built-with)
 [![Works offline](https://img.shields.io/badge/works-offline-2f7d5b?style=flat-square)](#-works-offline)
-[![Remedies](https://img.shields.io/badge/remedies-100-6e1f2a?style=flat-square)](#-what-it-contains)
 [![Study aid only](https://img.shields.io/badge/study%20aid-only-a3382f?style=flat-square)](docs/DISCLAIMER.md)
 
 <br>
 
-[**Open the live app**](https://drsamonline.github.io/mnemosyne-companion/) &nbsp;·&nbsp;
+[**Landing page**](https://drsamonline.github.io/mnemosyne-companion/) &nbsp;·&nbsp;
+[**Open the live app**](https://drsamonline.github.io/mnemosyne-companion/play/) &nbsp;·&nbsp;
 [Download the app](dist/Mnemosyne_Companion.html) &nbsp;·&nbsp;
 [Read the docs](docs/) &nbsp;·&nbsp;
 [Report an issue](https://github.com/drsamonline/mnemosyne-companion/issues)
