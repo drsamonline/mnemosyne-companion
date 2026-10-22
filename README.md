@@ -21,6 +21,9 @@
 
 [**Landing page**](https://drsamonline.github.io/mnemosyne-companion/) &nbsp;·&nbsp;
 [**Open the live app**](https://drsamonline.github.io/mnemosyne-companion/play/) &nbsp;·&nbsp;
+
+**Download:** [Windows (.exe)](https://github.com/drsamonline/mnemosyne-companion/releases/latest/download/mnemosyne-companion-portable.exe) &nbsp;·&nbsp; [Android (.apk)](https://github.com/drsamonline/mnemosyne-companion/releases/latest/download/mnemosyne-companion.apk)
+
 [Download the app](dist/Mnemosyne_Companion.html) &nbsp;·&nbsp;
 [Read the docs](docs/) &nbsp;·&nbsp;
 [Report an issue](https://github.com/drsamonline/mnemosyne-companion/issues)
