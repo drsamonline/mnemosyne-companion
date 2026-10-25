@@ -4,6 +4,12 @@
 
 # Mnemosyne Companion
 
+<!-- shot:start -->
+
+![Screenshot](docs/shot.png)
+
+<!-- shot:end -->
+
 **A study companion for _Mnemosyne Materia Medica_** — the 100 polycrest homoeopathic remedies as poetic pearls, keynotes and spaced-repetition drills, in a single offline app.
 
 [![Landing page](https://img.shields.io/badge/landing%20page-visit-d4af37?style=flat-square)](https://drsamonline.github.io/mnemosyne-companion/)
