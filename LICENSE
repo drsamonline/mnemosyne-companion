@@ -1,133 +1,111 @@
-Required Notice: Copyright 2026 Dr Sohil Momin
+MNEMOSYNE COMPANION — PROPRIETARY SOFTWARE AND CONTENT LICENCE
+Copyright (c) 2026 Dr. Sohil Momin. All Rights Reserved.
 
-# PolyForm Noncommercial License 1.0.0
+====================================================================
+1. OWNERSHIP
+====================================================================
 
-<https://polyformproject.org/licenses/noncommercial/1.0.0>
+The software, source code, application, documentation, diagrams,
+screenshots, text, remedy data and all other materials contained in
+this repository (together, "the Work") are the exclusive property of
+Dr. Sohil Momin ("the Author") and are protected by copyright law and
+international copyright treaties.
 
-## Acceptance
+The Work is the companion application to the book "Mnemosyne Materia
+Medica: A Memory-Optimised Clinical Guide to 100 Polycrest
+Homoeopathic Remedies" by Dr. Sohil Momin.
 
-In order to get any license under these terms, you must agree
-to them as both strict obligations and conditions to all
-your licenses.
+All rights not expressly granted in this licence are reserved by the
+Author.
 
-## Copyright License
+====================================================================
+2. PERMITTED USE
+====================================================================
 
-The licensor grants you a copyright license for the
-software to do everything you might do with the software
-that would otherwise infringe the licensor's copyright
-in it for any permitted purpose. However, you may
-only distribute the software according to [Distribution
-License](#distribution-license) and make changes or new works
-based on the software according to [Changes and New Works
-License](#changes-and-new-works-license).
+Subject to the terms below, you are granted a limited, revocable,
+non-exclusive, non-transferable licence to:
 
-## Distribution License
+  (a) view, read and study the Work;
+  (b) open and use the application for your own personal, educational
+      and non-commercial study, including as a registered reader of
+      the book;
+  (c) download and keep a single personal copy of the application on
+      your own devices, provided this licence file is kept with it.
 
-The licensor grants you an additional copyright license
-to distribute copies of the software. Your license
-to distribute covers distributing the software with
-changes and new works permitted by [Changes and New Works
-License](#changes-and-new-works-license).
+No other use is permitted.
 
-## Notices
+====================================================================
+3. RESTRICTIONS
+====================================================================
 
-You must ensure that anyone who gets a copy of any part of
-the software from you also gets a copy of these terms or the
-URL for them above, as well as copies of any plain-text lines
-beginning with `Required Notice:` that the licensor provided
-with the software. For example:
+You may NOT, without the prior written permission of the Author:
 
-> Required Notice: Copyright Yoyodyne, Inc. (http://example.com)
+  (a) copy, reproduce, publish, distribute, sublicense, sell, rent,
+      lease or otherwise make the Work available to any third party,
+      in whole or in part;
+  (b) modify, adapt, translate, transform, or create derivative works
+      based on the Work, including the remedy data, poetic pearls,
+      diagrams or documentation;
+  (c) incorporate the Work, or any part of it, into another product,
+      application, dataset, corpus, model or training set;
+  (d) use the Work, or any part of it, for any commercial purpose;
+  (e) remove, obscure or alter any copyright, attribution or
+      proprietary notice in the Work;
+  (f) use the name, likeness or professional title of the Author to
+      endorse any product or service.
 
-## Changes and New Works License
+====================================================================
+4. THIRD-PARTY AND PUBLIC-DOMAIN MATERIAL
+====================================================================
 
-The licensor grants you an additional copyright license to
-make changes and new works based on the software for any
-permitted purpose.
+The remedy pictures referenced in the Work are drawn from the
+classical, public-domain homoeopathic materia medica (Boericke, Kent,
+Clarke, Allen, Nash, Boger and Hahnemann). Those underlying works are
+in the public domain and are not claimed here.
 
-## Patent License
+The selection, arrangement, encoding, editorial framing, memory
+frameworks, poetic pearls, visual design, source code and written
+documentation are original to the Author and are NOT public domain.
 
-The licensor grants you a patent license for the software that
-covers patent claims the licensor can license, or becomes able
-to license, that you would infringe by using the software.
+====================================================================
+5. MEDICAL DISCLAIMER
+====================================================================
 
-## Noncommercial Purposes
+THE WORK IS A STUDY AID. IT DOES NOT DIAGNOSE, TREAT OR PRESCRIBE,
+AND IT IS NOT MEDICAL ADVICE. IT DOES NOT REPLACE FORMAL TRAINING,
+CLINICAL JUDGEMENT, PROFESSIONAL DIAGNOSIS OR EMERGENCY CARE.
 
-Any noncommercial purpose is a permitted purpose.
+THE WORK IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
+MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND
+NON-INFRINGEMENT. IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR ANY
+CLAIM, DAMAGE OR OTHER LIABILITY ARISING FROM, OUT OF, OR IN
+CONNECTION WITH THE WORK OR THE USE OF THE WORK.
 
-## Personal Uses
+====================================================================
+6. TERMINATION
+====================================================================
 
-Personal use for research, experiment, and testing for
-the benefit of public knowledge, personal study, private
-entertainment, hobby projects, amateur pursuits, or religious
-observance, without any anticipated commercial application,
-is use for a permitted purpose.
+This licence terminates automatically if you breach any of its terms.
+On termination you must cease all use and destroy all copies of the
+Work in your possession.
 
-## Noncommercial Organizations
+====================================================================
+7. GOVERNING LAW
+====================================================================
 
-Use by any charitable organization, educational institution,
-public research organization, public safety or health
-organization, environmental protection organization,
-or government institution is use for a permitted purpose
-regardless of the source of funding or obligations resulting
-from the funding.
+This licence is governed by the laws of India. The courts at
+Vadodara, Gujarat, India shall have exclusive jurisdiction over any
+dispute arising under it.
 
-## Fair Use
+====================================================================
+8. PERMISSIONS
+====================================================================
 
-You may have "fair use" rights for the software under the
-law. These terms do not limit them.
+For permission requests, licensing enquiries, or to report
+infringement, contact the Author:
 
-## No Other Rights
+    Dr. Sohil Momin, BHMS
+    Email: sohilmomin2000@gmail.com
 
-These terms do not allow you to sublicense or transfer any of
-your licenses to anyone else, or prevent the licensor from
-granting licenses to anyone else. These terms do not imply
-any other licenses.
-
-## Patent Defense
-
-If you make any written claim that the software infringes or
-contributes to infringement of any patent, your patent license
-for the software granted under these terms ends immediately. If
-your company makes such a claim, your patent license ends
-immediately for work on behalf of your company.
-
-## Violations
-
-The first time you are notified in writing that you have
-violated any of these terms, or done anything with the software
-not covered by your licenses, your licenses can nonetheless
-continue if you come into full compliance with these terms,
-and take practical steps to correct past violations, within
-32 days of receiving notice. Otherwise, all your licenses
-end immediately.
-
-## No Liability
-
-***As far as the law allows, the software comes as is, without
-any warranty or condition, and the licensor will not be liable
-to you for any damages arising out of these terms or the use
-or nature of the software, under any kind of legal claim.***
-
-## Definitions
-
-The **licensor** is the individual or entity offering these
-terms, and the **software** is the software the licensor makes
-available under these terms.
-
-**You** refers to the individual or entity agreeing to these
-terms.
-
-**Your company** is any legal entity, sole proprietorship,
-or other kind of organization that you work for, plus all
-organizations that have control over, are under the control of,
-or are under common control with that organization. **Control**
-means ownership of substantially all the assets of an entity,
-or the power to direct its management and policies by vote,
-contract, or otherwise. Control can be direct or indirect.
-
-**Your licenses** are all the licenses granted to you for the
-software under these terms.
-
-**Use** means anything you do with the software requiring one
-of your licenses.
+====================================================================
