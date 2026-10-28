@@ -4,6 +4,8 @@
 
 # Mnemosyne Companion
 
+[![License: Free for personal study](https://img.shields.io/badge/license-Free%20for%20personal%20study-lightgrey)](LICENSE)
+
 <!-- shot:start -->
 
 ![Screenshot](docs/shot.png)
