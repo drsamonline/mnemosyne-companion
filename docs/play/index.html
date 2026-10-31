@@ -1022,5 +1022,21 @@ window.addEventListener("error", function () { window.__bootError = true; });
     setTimeout(function () { URL.revokeObjectURL(a.href); }, 1000);
   });
 })();
-</script></body>
+</script><style id="app-theme">
+  /* mnemosyne-companion - its own palette, type and shape.
+     Keyed on data-theme so the in-app theme toggle still works; !important is
+     required because web-kit sets these as inline styles on <html>. */
+  html[data-theme="dark"]{--bg:#0f091a !important;--card:#190c29 !important;--ink:#f7f1fe !important;--mut:#8f68c4 !important;--line:#271140 !important;--acc:#b16cf0 !important;}
+  html[data-theme="light"]{--bg:#faf6fe !important;--card:#ffffff !important;--ink:#1b132f !important;--mut:#7f44c0 !important;--line:#f0e2fc !important;--acc:#792ac0 !important;}
+  html,body{font-family:ui-serif, Georgia, "Iowan Old Style", "Times New Roman", serif !important;letter-spacing:0 !important;
+    background-image:radial-gradient(820px 360px at 50% -170px,
+      color-mix(in srgb, var(--acc) 16%, transparent), transparent 72%) !important;
+    background-repeat:no-repeat !important;background-attachment:fixed !important}
+  button,input,textarea,select{font-family:ui-serif, Georgia, "Iowan Old Style", "Times New Roman", serif !important}
+  button,.btn{border-radius:14px !important}
+  input,textarea,select{border-radius:12px !important}
+  .card,[class*="card"]{border-radius:16px !important}
+  button:not(.ghost):not(.tab){background:var(--acc) !important}
+</style>
+</body>
 </html>
