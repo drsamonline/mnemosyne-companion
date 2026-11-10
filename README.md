@@ -4,7 +4,7 @@
 
 # Mnemosyne Companion
 
-[![License: Free for personal study](https://img.shields.io/badge/license-Free%20for%20personal%20study-lightgrey)](LICENSE)
+[![License: PolyForm Noncommercial 1.0.0](https://img.shields.io/badge/license-PolyForm%20Noncommercial%201.0.0-blue)](LICENSE)
 
 <!-- shot:start -->
 
@@ -114,7 +114,7 @@ Plain HTML, CSS and vanilla JavaScript. **No frameworks, no build step, no depen
 │   ├── DESIGN.md
 │   ├── FAQ.md
 │   └── DISCLAIMER.md
-├── LICENSE                    # proprietary — all rights reserved
+├── LICENSE                    # PolyForm Noncommercial 1.0.0
 ├── NOTICE.md                  # copyright and provenance
 └── CHANGELOG.md
 ```
@@ -132,9 +132,13 @@ Plain HTML, CSS and vanilla JavaScript. **No frameworks, no build step, no depen
 
 ## Licence and copyright
 
-**© 2026 Dr. Sohil Momin. All rights reserved.**
+**© 2026 Dr. Sohil Momin — PolyForm Noncommercial 1.0.0.**
 
-This repository and the application it contains are **proprietary, copyrighted work**. They are published here for reference and for use by readers of _Mnemosyne Materia Medica_. Copying, redistribution, modification, republication or commercial use — in whole or in part — is **not permitted** without the prior written permission of the copyright holder. See [LICENSE](LICENSE) and [NOTICE.md](NOTICE.md).
+This repository and the application it contains are published under the **PolyForm
+Noncommercial 1.0.0** licence: you may read, copy, modify and share them for any
+**noncommercial** purpose, keeping the required notice. Commercial use needs a separate
+licence. This replaces an "all rights reserved" notice that contradicted this README's own
+promise of free use for personal study. See [LICENSE](LICENSE) and [NOTICE.md](NOTICE.md).
 
 The remedy pictures are drawn from the classical, public-domain homoeopathic materia medica (Boericke, Kent, Clarke, Allen, Nash, Boger and Hahnemann). The memory frameworks, poetic pearls, application code, diagrams and written documentation are original to this work and are not public domain.
 
