@@ -1206,6 +1206,15 @@ window.addEventListener("error", function () { window.__bootError = true; });
   input,textarea,select{border-radius:12px !important}
   .card,[class*="card"]{border-radius:16px !important}
   button:not(.ghost):not(.tab){background:var(--acc) !important}
+
+/* ---- a11y: button contrast (measured, WCAG AA) ---------------------------
+   Measured on the rendered page in both themes by forge tools/contrast-guard.py.
+   Pairs below are the failing ones, pinned. */
+.btn.gold,#save-data{color:#ffffff!important}                     /* 2.27/1.79 -> 7.23 on #792ac0 */
+[data-theme="dark"] .iconbtn,[data-theme="dark"] .support-open,
+[data-theme="dark"] .btn:not(.ghost){color:#241247!important}      /* 2.88/3.12 -> 5.01 on #b16cf0 */
+[data-theme="dark"] .btn.ghost{color:#f3e6d0!important}            /* 2.55 -> 13.6 on #241c16 */
+[data-theme="dark"] #save-data{color:#241247!important}      /* 3.35 -> 5.01 on #b16cf0 */
 </style>
 </body>
 </html>
