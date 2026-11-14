@@ -691,6 +691,13 @@ html.js .reveal.in{opacity:1;transform:none}
   .support-foot{margin:1.2rem 0 0;font-size:.8rem;color:var(--s-muted)}
   @media (prefers-reduced-motion:no-preference){.support-card{transition:border-color .15s ease}}
   .support-card:target,.support-card:focus-within{border-color:var(--s-accent)}
+
+/* ---- a11y: button contrast (measured, WCAG AA) ----------------------------
+   A button paired a surface token that flips with the theme with a text colour
+   that does not, so one mode rendered the label invisible. Each rule below
+   pins the pair. Ratios are from the rendered page, not from the source. */
+
+[data-theme="light"] .btn.btn-gold{background:linear-gradient(180deg,#8a6a12,#6b520e)!important;color:#fff8e1!important} /* 3.17 -> 4.8 */
 </style>
 
 <section class="support" id="support" aria-labelledby="support-h" data-support>
